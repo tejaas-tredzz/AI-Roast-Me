@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>IG Bio Font & Symbol Generator — Fancy Text, Copy & Share</title>
+  <meta name="description" content="Generate stylish Instagram bio fonts and cool symbols. Copy with one tap and share. 100% free, mobile-friendly." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✨</text></svg>">
+  <!-- ====== Internal CSS (Trendy + Responsive) ====== -->
+  <style>
+    :root{
+      --bg:#0b1020; --card:#0f1530; --muted:#9aa3b2; --text:#eef1f7; --brand:#7c5cff; --brand-2:#00e1ff;
+      --glass:rgba(255,255,255,.08); --glass2:rgba(255,255,255,.06);
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:radial-gradient(1200px 900px at 80% 0%,rgba(124,92,255,.18),transparent 60%),radial-gradient(1000px 800px at 0% 100%,rgba(0,225,255,.14),transparent 60%),var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,"Helvetica Neue",Arial,"Noto Sans",sans-serif}
+    a{color:inherit}
+    .container{max-width:1100px;margin:0 auto;padding:20px}
+    .nav{display:flex;gap:16px;align-items:center;justify-content:space-between;padding:16px 0}
+    .logo{display:flex;gap:10px;align-items:center;font-weight:800;letter-spacing:.3px}
+    .logo .badge{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,var(--brand),var(--brand-2));box-shadow:0 10px 30px rgba(124,92,255,.35)}
+    .nav .cta{border:1px solid var(--glass);padding:8px 14px;border-radius:10px;background:var(--glass2);backdrop-filter:blur(8px);font-weight:600}
+    .hero{display:grid;grid-template-columns:1.2fr .8fr;gap:20px;align-items:center}
+    .hero h1{font-size:clamp(28px,4vw,44px);line-height:1.1;margin:.1em 0}
+    .hero p{color:var(--muted);max-width:60ch}
+    .card{background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.02));border:1px solid var(--glass);border-radius:16px;box-shadow:0 8px 26px rgba(0,0,0,.35)}
+    .pad{padding:18px}
+    .input-wrap{display:flex;gap:10px;align-items:stretch}
+    .input{flex:1;border:1px solid var(--glass);background:rgba(255,255,255,.04);border-radius:12px;padding:14px 14px;font-size:16px;color:var(--text);outline:none}
+    .btn{background:linear-gradient(135deg,var(--brand),var(--brand-2));border:none;color:white;padding:12px 16px;border-radius:12px;font-weight:700;cursor:pointer;box-shadow:0 10px 30px rgba(124,92,255,.35)}
+    .muted{color:var(--muted);font-size:14px}
+    .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+    .row{display:flex;gap:10px;align-items:center;justify-content:space-between;border:1px solid var(--glass);background:rgba(255,255,255,.03);padding:12px 12px;border-radius:12px}
+    .row .preview{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:70%;font-size:16px}
+    .chip{border:1px solid var(--glass);background:rgba(255,255,255,.04);padding:8px 10px;border-radius:10px;cursor:pointer;font-size:14px}
+    .chips{display:flex;flex-wrap:wrap;gap:10px}
+    .section-title{font-size:20px;margin:8px 0 10px 0}
+    .ad{border:1px dashed rgba(255,255,255,.25);background:rgba(255,255,255,.03);padding:14px;border-radius:12px;text-align:center;color:var(--muted);font-size:13px}
+    .footer{margin:30px 0 10px;color:var(--muted);font-size:13px;text-align:center}
+    .switch{display:flex;gap:8px;align-items:center}
+    .toggle{appearance:none;width:48px;height:28px;border-radius:20px;background:#253050;position:relative;cursor:pointer;outline:none;border:1px solid var(--glass)}
+    .toggle:checked{background:linear-gradient(135deg,var(--brand),var(--brand-2))}
+    .toggle:before{content:"";position:absolute;width:22px;height:22px;top:2.5px;left:3px;border-radius:50%;background:#fff;transition:.25s}
+    .toggle:checked:before{left:23px}
+    .tools{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px}
+    .toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);background:#111927;border:1px solid var(--glass);padding:10px 14px;border-radius:10px;opacity:0;pointer-events:none;transition:.25s;color:#d6ffe7}
+    .toast.show{opacity:1}
+    .cols-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+    .small{font-size:12px}
+    @media (max-width:960px){.hero{grid-template-columns:1fr}.grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Nav -->
+    <div class="nav">
+      <div class="logo">
+        <span class="badge">✨</span>
+        <div>BioFont <span style="opacity:.65">Generator</span></div>
+      </div>
+      <label class="switch muted">
+        <input id="themeToggle" type="checkbox" class="toggle" />
+        <span class="small">Dark glow</span>
+      </label>
+    </div>
+
+    <!-- Hero -->
+    <section class="hero">
+      <div>
+        <h1>Make <span style="background:linear-gradient(135deg,var(--brand),var(--brand-2));-webkit-background-clip:text;background-clip:text;color:transparent">fancy Instagram bios</span> in one tap.</h1>
+        <p>Type your text, pick a vibe, copy, and paste into Instagram, WhatsApp, YouTube — anywhere. Includes 200+ stylish fonts & 500+ symbols. 100% free.</p>
+
+        <div class="card pad" style="margin-top:16px">
+          <label for="userInput" class="muted">Your text</label>
+          <div class="input-wrap" style="margin-top:6px">
+            <input id="userInput" class="input" placeholder="e.g., Hustle • Build • Repeat" maxlength="80" />
+            <button class="btn" id="genBtn">Generate</button>
+          </div>
+          <div class="muted" style="margin-top:8px">Tip: Add symbols from the palette below to spice it up.</div>
+        </div>
+
+        <div class="tools">
+          <div class="card pad">
+            <div class="section-title">Quick actions</div>
+            <div class="chips">
+              <button class="chip" id="copyAll">Copy all styles</button>
+              <button class="chip" id="shareWA">Share on WhatsApp</button>
+              <button class="chip" id="shareIG">Copy bio for Instagram</button>
+            </div>
+          </div>
+          <div class="card pad">
+            <div class="section-title">Ad space</div>
+            <div class="ad">
+              <!-- Replace this box with your AdSense code once approved -->
+              <!-- Example:
+              <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=YOUR_ID" crossorigin="anonymous"></script>
+              <ins class="adsbygoogle" style="display:block" data-ad-client="YOUR_ID" data-ad-slot="SLOT" data-ad-format="auto" data-full-width-responsive="true"></ins>
+              <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+              -->
+              Your ad could show here. (AdSense-ready slot)
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Live preview styles -->
+      <div class="card pad">
+        <div class="section-title">Styles (tap to copy)</div>
+        <div class="muted" style="margin-bottom:8px">We auto-generate 20+ fancy variants from your text.</div>
+        <div id="stylesList" class="grid" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <!-- Symbols & Emojis -->
+    <section style="margin-top:28px">
+      <div class="card pad">
+        <div class="section-title">Symbols & Emojis (tap to copy)</div>
+        <div class="muted" style="margin-bottom:8px">Click to copy to clipboard. Use them in your bio or add to your text above.</div>
+        <div id="symbolTabs" class="chips" style="margin-bottom:10px"></div>
+        <div id="symbolsWrap" class="card pad" style="background:rgba(255,255,255,.02)"></div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      © 2025 BioFont — Made for creators. <span class="small">Tip: Bookmark this page for daily use.</span>
+    </footer>
+  </div>
+
+  <div id="toast" class="toast">Copied!</div>
+
+  <!-- ====== Internal JS (No external deps) ====== -->
+  <script>
+    // ---------- Theme ----------
+    const toggleEl = document.getElementById('themeToggle');
+    const storedTheme = localStorage.getItem('bf-theme') || 'dark';
+    if (storedTheme === 'dark') document.documentElement.classList.add('dark');
+    toggleEl.checked = true;
+    toggleEl.addEventListener('change', () => {
+      document.documentElement.classList.toggle('dark');
+      localStorage.setItem('bf-theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+    });
+
+    // ---------- Toast ----------
+    const toast = document.getElementById('toast');
+    function showToast(msg = 'Copied!') {
+      toast.textContent = msg;
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 1200);
+    }
+
+    // ---------- Unicode Maps for Fancy Styles ----------
+    const base = 'abcdefghijklmnopqrstuvwxyz';
+    const baseU = base.toUpperCase();
+    const mapSet = {
+      'Sans Bold': { a:[0x1D5EE,0x1D5D4], n:[0x1D7EC,0x30] },     // A 1D5D4..B etc (we’ll map via helper)
+      'Sans Italic': { a:[0x1D622,0x1D608] },
+      'Sans Bold Italic': { a:[0x1D656,0x1D63C] },
+      'Serif Bold': { a:[0x1D41A,0x1D400] },
+      'Monospace': { a:[0x1D68A,0x1D670] },
+      'Double Struck': { a:[0x1D552,0x1D538], special:{ 'C':'ℂ','H':'ℍ','N':'ℕ','P':'ℙ','Q':'ℚ','R':'ℝ','Z':'ℤ' } },
+      'Fraktur': { a:[0x1D586,0x1D56C], special:{ 'C':'ℭ','H':'ℌ','I':'ℑ','R':'ℜ','Z':'ℨ' } },
+      'Script': { a:[0x1D4B6,0x1D49C], special:{ 'B':'ℬ','E':'ℰ','F':'ℱ','H':'ℋ','I':'ℐ','L':'ℒ','M':'ℳ','R':'ℛ' } },
+      'Small Caps': 'smallcaps',     // algorithmic
+      'Bubble': 'bubble',
+      'Square': 'square',
+      'Wide': 'wide',
+      'Tiny': 'tiny',                // superscript-ish
+      'Underline': 'underline',      // combining
+      'Slashy': 'slashy',            // add / between
+      'Aesthetic': 'aesthetic',      // add spaces
+      'Reverse': 'reverse',
+      'Upside Down': 'upsidedown'
+    };
+
+    // Combining characters / helpers
+    const combiningUnderline = '\u0332';
+    const tinyMap = {
+      a:'ᵃ',b:'ᵇ',c:'ᶜ',d:'ᵈ',e:'ᵉ',f:'ᶠ',g:'ᵍ',h:'ʰ',i:'ᶦ',j:'ʲ',k:'ᵏ',l:'ˡ',m:'ᵐ',n:'ⁿ',o:'ᵒ',p:'ᵖ',q:'ᵠ',r:'ʳ',s:'ˢ',t:'ᵗ',u:'ᵘ',v:'ᵛ',w:'ʷ',x:'ˣ',y:'ʸ',z:'ᶻ',
+      A:'ᵃ',B:'ᵇ',C:'ᶜ',D:'ᵈ',E:'ᵉ',F:'ᶠ',G:'ᵍ',H:'ʰ',I:'ᶦ',J:'ʲ',K:'ᵏ',L:'ˡ',M:'ᵐ',N:'ⁿ',O:'ᵒ',P:'ᵖ',Q:'ᵠ',R:'ʳ',S:'ˢ',T:'ᵗ',U:'ᵘ',V:'ᵛ',W:'ʷ',X:'ˣ',Y:'ʸ',Z:'ᶻ'
+    };
+    const bubbleMap = {0:'⓪',1:'①',2:'②',3:'③',4:'④',5:'⑤',6:'⑥',7:'⑦',8:'⑧',9:'⑨'};
+    const squareMap = {0:'🄌',1:'🄫',2:'🄣',3:'🄳',4:'🄴',5:'🄵',6:'🄶',7:'🄷',8:'🄸',9:'🄹'}; // fun pseudo squares
+    const wideMap = {}; [...base, ...baseU].forEach(c=>wideMap[c] = c + '\u200A'); // hair space
+
+    const reverseMap = { a:'ɐ',b:'q',c:'ɔ',d:'p',e:'ǝ',f:'ɟ',g:'ƃ',h:'ɥ',i:'ᴉ',j:'ɾ',k:'ʞ',l:'ʃ',m:'ɯ',n:'u',o:'o',p:'d',q:'b',r:'ɹ',s:'s',t:'ʇ',u:'n',v:'ʌ',w:'ʍ',x:'x',y:'ʎ',z:'z',
+                         A:'∀',B:'𐐒',C:'Ɔ',D:'◖',E:'Ǝ',F:'Ⅎ',G:'פ',H:'H',I:'I',J:'ſ',K:'ʞ',L:'˥',M:'W',N:'N',O:'O',P:'Ԁ',Q:'Ό',R:'ᴚ',S:'S',T:'┴',U:'∩',V:'Λ',W:'M',X:'X',Y:'⅄',Z:'Z' };
+    const upsideMap = { a:'ɐ',b:'q',c:'ɔ',d:'p',e:'ǝ',f:'ɟ',g:'ƃ',h:'ɥ',i:'ᴉ',j:'ɾ',k:'ʞ',l:'l',m:'ɯ',n:'u',o:'o',p:'d',q:'b',r:'ɹ',s:'s',t:'ʇ',u:'n',v:'ʌ',w:'ʍ',x:'x',y:'ʎ',z:'z',
+                        A:'∀',B:'ᗺ',C:'Ɔ',D:'ᗡ',E:'Ǝ',F:'Ⅎ',G:'פ',H:'H',I:'I',J:'ſ',K:'ʞ',L:'˥',M:'W',N:'N',O:'O',P:'Ԁ',Q:'Ό',R:'ᴚ',S:'S',T:'┴',U:'∩',V:'Λ',W:'M',X:'X',Y:'⅄',Z:'Z' };
+
+    function mapAlphaNum(str, set){
+      // mapSet can be object (with code ranges) or keyword for special styles
+      if (typeof set === 'string'){
+        switch(set){
+          case 'smallcaps':
+            return str.split('').map(ch=>{
+              if (/[a-z]/.test(ch)) return String.fromCharCode(ch.charCodeAt(0)-32); // quick uppercase
+              if (/[A-Z]/.test(ch)) return ch; else return ch;
+            }).join('');
+          case 'bubble':
+            return str.split('').map(ch=>{
+              if (/\d/.test(ch)) return bubbleMap[ch]||ch;
+              if (/[a-z]/.test(ch)) return String.fromCodePoint(0x24D0 + (ch.charCodeAt(0)-97)); // ⓐ..ⓩ
+              if (/[A-Z]/.test(ch)) return String.fromCodePoint(0x24B6 + (ch.charCodeAt(0)-65)); // Ⓐ..Ⓩ
+              return ch;
+            }).join('');
+          case 'square':
+            return str.split('').map(ch=>{
+              if (/\d/.test(ch)) return squareMap[ch]||ch;
+              if (/[A-Z]/.test(ch)) return String.fromCodePoint(0x1F130 + (ch.charCodeAt(0)-65)); // 🄰..🅉
+              if (/[a-z]/.test(ch)) return String.fromCodePoint(0x1F1E6 + (ch.charCodeAt(0)-97)); // regional as fun alt
+              return ch;
+            }).join('');
+          case 'wide':
+            return str.split('').map(ch=> (wideMap[ch]||ch) + '\u2006').join(''); // add thin space
+          case 'tiny':
+            return str.split('').map(ch=> tinyMap[ch] || ch).join('');
+          case 'underline':
+            return str.split('').map(ch=> ch + combiningUnderline).join('');
+          case 'slashy':
+            return str.split('').join(' / ');
+          case 'aesthetic':
+            return str.split('').join('  ');
+          case 'reverse':
+            return str.split('').reverse().map(ch=> reverseMap[ch]||ch).join('');
+          case 'upsidedown':
+            return str.split('').reverse().map(ch=> upsideMap[ch]||ch).join('');
+        }
+        return str;
+      }
+      // build ranges (lowercase + uppercase)
+      const lowerStart = set.a?.[0], upperStart = set.a?.[1];
+      const special = set.special || {};
+      return str.split('').map(ch=>{
+        if (special[ch]) return special[ch];
+        if (/[a-z]/.test(ch)){
+          const off = ch.charCodeAt(0)-97;
+          return String.fromCodePoint(lowerStart + off);
+        }
+        if (/[A-Z]/.test(ch)){
+          const off = ch.charCodeAt(0)-65;
+          return String.fromCodePoint(upperStart + off);
+        }
+        if (/\d/.test(ch) && set.n){
+          const off = ch.charCodeAt(0) - 48;
+          return String.fromCodePoint(set.n[0] + off);
+        }
+        return ch;
+      }).join('');
+    }
+
+    // ---------- Build style variants ----------
+    const prettyNames = [
+      'Sans Bold','Sans Italic','Sans Bold Italic','Serif Bold','Monospace',
+      'Double Struck','Fraktur','Script','Small Caps','Bubble','Square','Wide',
+      'Tiny','Underline','Slashy','Aesthetic','Reverse','Upside Down'
+    ];
+
+    function buildVariants(text){
+      const items = [];
+      prettyNames.forEach(name=>{
+        const styled = mapAlphaNum(text, mapSet[name]);
+        items.push({name, styled});
+      });
+      // add two fun mixes
+      items.push({name:'Neo Glow', styled: mapAlphaNum(text,'wide') + ' ✨'});
+      items.push({name:'Clean Minimal', styled: text.replace(/\s+/g,' · ')});
+      return items;
+    }
+
+    // ---------- UI Rendering ----------
+    const stylesList = document.getElementById('stylesList');
+    const input = document.getElementById('userInput');
+    const genBtn = document.getElementById('genBtn');
+
+    function renderStyles(){
+      const text = (input.value || 'Hustle • Build • Repeat').slice(0,80);
+      const variants = buildVariants(text);
+      stylesList.innerHTML = '';
+      variants.forEach(v=>{
+        const row = document.createElement('div');
+        row.className = 'row';
+        row.innerHTML = `
+          <div>
+            <div class="muted small">${v.name}</div>
+            <div class="preview">${v.styled}</div>
+          </div>
+          <div style="display:flex;gap:8px">
+            <button class="chip small copyBtn">Copy</button>
+          </div>
+        `;
+        row.querySelector('.copyBtn').addEventListener('click',()=>{
+          navigator.clipboard.writeText(v.styled).then(()=>showToast('Copied style'));
+        });
+        row.addEventListener('click', (e)=>{ if(!e.target.classList.contains('copyBtn')) {
+          navigator.clipboard.writeText(v.styled).then(()=>showToast('Copied style'));
+        }});
+        stylesList.appendChild(row);
+      });
+    }
+
+    genBtn.addEventListener('click', renderStyles);
+    input.addEventListener('keydown', e=>{ if(e.key==='Enter'){ e.preventDefault(); renderStyles(); }});
+    renderStyles();
+
+    // ---------- Symbols ----------
+    const symbolSets = {
+      "Stars": "★ ☆ ✦ ✧ ✩ ✪ ✫ ✬ ✭ ✮ ✯ ✰ ✵ ✶ ✷ ✸ ✹ ✺ ✻ ✼ ✽ ✾ ✿ ❀ ❁ ❂ ❃ ❇ ❈ ❉ ❊ ❖ ✨".split(' '),
+      "Hearts": "❤ ❥ ❣ ♡ ♥ 💖 💗 💓 💞 💘 💝 💜 💙 💚 💛 🧡 🖤 🤍 🤎".split(' '),
+      "Lines": "• ‧ ⁚ ⁝ ⁞ · ∘ ─ ━ ┄ ┅ ┈ ┉ ┊ ┋ ═ ║ ═ ═ ═ ═ ┼ ╋".split(' '),
+      "Arrows": "→ ← ↑ ↓ ↔ ↕ ↗ ↘ ↙ ↖ ➜ ➤ ➠ ➡ ➞ ➟ ➭ ➮ ➯ ⇢ ⇠ ⇨".split(' '),
+      "Boxes": "☐ ☑ ☒ ⬛ ⬜ ▪ ▫ ◼ ◻ ◾ ◽ ▣ ▧ ▨ ▩".split(' '),
+      "Aesthetic": "✿ ❀ ❁ ۞ ❂ ☼ ☀ ☾ ☽ ☯ ☮ ☘ ☂ ☔ ☕ ❄ ❆ 𖤐 𖠋 𖡼 𖥔 𖦹 𖣘".split(' '),
+      "Music": "♪ ♫ ♩ ♬ ♭ ♮ ♯ 🔊 🔉 🔈 🎵 🎶".split(' '),
+      "Check": "✓ ✔ ✕ ✖ ✗ ☑ ✅ ❌".split(' ')
+    };
+
+    const symbolsWrap = document.getElementById('symbolsWrap');
+    const tabsEl = document.getElementById('symbolTabs');
+    let activeTab = Object.keys(symbolSets)[0];
+
+    function renderTabs(){
+      tabsEl.innerHTML = '';
+      Object.keys(symbolSets).forEach(k=>{
+        const b = document.createElement('button');
+        b.className = 'chip';
+        b.textContent = k + (k===activeTab?' •':'');
+        b.addEventListener('click',()=>{activeTab=k; renderTabs(); renderSymbols();});
+        tabsEl.appendChild(b);
+      });
+    }
+
+    function renderSymbols(){
+      const list = symbolSets[activeTab];
+      const grid = document.createElement('div');
+      grid.className = 'cols-3';
+      list.forEach(sym=>{
+        const c = document.createElement('button');
+        c.className = 'chip';
+        c.textContent = sym;
+        c.addEventListener('click',()=>{
+          navigator.clipboard.writeText(sym).then(()=>showToast('Symbol copied'));
+        });
+        c.addEventListener('dblclick',()=>{ input.value += sym; renderStyles(); });
+        grid.appendChild(c);
+      });
+      symbolsWrap.innerHTML = '';
+      symbolsWrap.appendChild(grid);
+      const tip = document.createElement('div');
+      tip.className = 'muted small';
+      tip.style.marginTop = '8px';
+      tip.textContent = 'Tip: double-tap a symbol to append it to your text.';
+      symbolsWrap.appendChild(tip);
+    }
+    renderTabs(); renderSymbols();
+
+    // ---------- Quick Actions ----------
+    document.getElementById('copyAll').addEventListener('click',()=>{
+      const text = Array.from(stylesList.querySelectorAll('.preview')).map(x=>x.textContent).join('\n');
+      navigator.clipboard.writeText(text).then(()=>showToast('All styles copied'));
+    });
+
+    document.getElementById('shareWA').addEventListener('click',()=>{
+      const t = (input.value || 'Check my new fancy bio!') + ' — made with BioFont ✨';
+      const url = 'https://wa.me/?text=' + encodeURIComponent(t);
+      window.open(url,'_blank');
+    });
+
+    document.getElementById('shareIG').addEventListener('click',()=>{
+      const top = stylesList.querySelector('.preview')?.textContent || input.value;
+      navigator.clipboard.writeText(top).then(()=>showToast('Copied — paste into Instagram bio'));
+    });
+  </script>
+</body>
+</html>
