@@ -4,6 +4,6 @@
     { "src": "ai.html", "use": "@vercel/static" }
   ],
   "routes": [
-    { "src": "/(.*)", "dest": "/index.html" }
+    { "src": "/(.*)", "dest": "/ai.html" }
   ]
 }
